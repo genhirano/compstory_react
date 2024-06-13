@@ -2,37 +2,46 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-family: 'メイリオ', sans-serif; /* 明朝体に変更 */
+  line-height: 1.6; /* 行間に余白を設ける */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App {
+  max-width: 800px; /* メインコンテンツの幅を制限 */
+  margin: 0 auto; /* メインコンテンツを中央に配置 */
+  padding: 20px; /* メインコンテンツに余白を設ける */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1 {
+  font-size: 2.4em; /* 見出しの大きさを変える */
+  margin-bottom: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.text {
+  margin-left: 20px; /* メインコンテンツを左側に寄せる */
+  text-align: left;
+}
+
+/* その他の装飾 */
+.text p {
+  margin-bottom: 10px;
+}
+
+.text h2 {
+  border-bottom: 1px solid #ccc; /* 罫線を入れる */
+  padding-bottom: 10px;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+  .text {
+    margin-left: 0; /* スマートフォンでは左寄せを解除 */
   }
 }
