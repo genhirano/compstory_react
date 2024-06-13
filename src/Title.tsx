@@ -8,6 +8,7 @@ interface TitleProps {
 export const Title = ({ title, date }: TitleProps) => {
     return (
         <>
+            <p>毎日更新！</p>
             <h3>{date}</h3>
             <h1>{title}</h1>
         </>

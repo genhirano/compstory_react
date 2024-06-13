@@ -8,6 +8,9 @@ function App() {
 
   //https://kubogen.com/web-programing-299/
 
+  //npm run deploy
+
+
   interface Story {
     title: string;
     version: string;
