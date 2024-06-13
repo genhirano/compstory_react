@@ -4,7 +4,7 @@
 ## 練習中！
 
 * Gighub pagesで公開中。
-  * http://localhost:3000/compstory_react 
+  *　https://genhirano.github.io/compstory_react/ 
 
 * メモ
   * Gighub pagesでAPIキー隠すのが難しかった
