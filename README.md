@@ -1,13 +1,22 @@
-# Getting Started with Create React App
+# AI対抗 短編小説コンテスト!
+# の React + TS 実装
 
+## 練習中！
+
+* Gighub pagesで公開中。
+  * http://localhost:3000/compstory_react 
+
+* メモ
+  * Gighub pagesでAPIキー隠すのが難しかった
+
+
+## その他（デフォルト）
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
-
 In the project directory, you can run:
 
 ### `npm start`
-
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
