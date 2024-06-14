@@ -21,6 +21,17 @@ function App() {
     fetchDataMethod("0", "now");
   }, []);
   
+
+  //Q.なぜ、 asyncで関数と定義して、awaitで非同期処理を待つのか？
+  //これは結局のところ普通の同期処理ではなのか？
+  //A.この関数単体では同期処理として動作しますが、fetchDataMethod関数を呼び出す側で非同期処理として動作するため、APIから戻ってくる間にほかのコンポーネントなどは処理が進む。例えばボタンクリックなど。
+  //async/await構文は、内部的にPromiseを使って非同期操作を実現している。コードが同期的な順序で書けるため可読性が高い。
+  //Point.JavaScriptはシングルスレッドで動作するため、非同期処理を使わないと、APIのレスポンスを待っている間に他の処理ができない。
+  //awaitは、その時に実行されている非同期処理を指して、それの終了を待つという意味で書く。
+
+  //外部データプロバイダのAPIからデータを取得(data:useDataの更新あり＝レンダリングされる)
+  //currentoffset: 現在のオフセット
+  //direction: 前後のデータを取得するかどうか
   const fetchDataMethod = async (currentoffset: string, direction: string) => {
     setLoading(true);
     const baseURL = "https://compshortstory.shuttleapp.rs/api";
@@ -52,7 +63,6 @@ function App() {
       setLoading(false);
     }
   }
-
 
   if (loading) {
     return <div className='App'>Loading...</div>;
