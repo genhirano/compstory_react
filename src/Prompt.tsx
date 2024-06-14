@@ -9,7 +9,9 @@ function Prompt({ prompt }: PromptProps) {
 
         <div className='text'>
             <h2>Prompt</h2>
-            <div>{prompt}</div>
+            {prompt.map((line, index) => (
+                <p key={index}>{line}</p>
+            ))}
         </div>
 
     )
