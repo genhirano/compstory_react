@@ -1,9 +1,11 @@
-import React, { useEffect, useState, Suspense } from 'react';
+import React, { useEffect, useState} from 'react';
 
 import './App.css';
 import Title from './Title';
 import Text from './Text';
 import Prompt from './Prompt';
+import {Story} from './Types';
+
 
 function App() {
 
@@ -11,42 +13,38 @@ function App() {
 
   //npm run deploy
 
-
-  interface Story {
-    title: string;
-    version: string;
-    chatgpt: string[];
-    claude: string[];
-    gemini: string[];
-    copilot: string[];
-    prompt: string[];
-    totalcount: number;
-    offset: number;
-    has_next: boolean;
-    has_prev: boolean;
-  }
-
-
   const [data, setData] = useState<Story>();
   const [loading, setLoading] = useState<boolean>(true);
 
   //ページが読み込まれた時に一度だけ実行
   useEffect(() => {
-    fetchData();
+    fetchDataMethod("0", "now");
   }, []);
+  
+  const fetchDataMethod = async (currentoffset: string, direction: string) => {
+    setLoading(true);
+    const baseURL = "https://compshortstory.shuttleapp.rs/api";
 
-  async function fetchData() {
-    const url = "https://compshortstory.shuttleapp.rs/api";
+    const queryParams: Record<string, string> = {
+      direction: direction,
+      currentoffset: currentoffset,
+    };
+    const queryString = Object.keys(queryParams)
+      .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(queryParams[key])}`)
+      .join('&');
+
+    const url = `${baseURL}?${queryString}`;
+
     try {
-      const response = await fetch(url, {
+      const response = fetch(url, {
         method: 'GET',
         mode: 'cors',
       });
-      if (!response.ok) {
+      if (!(await response).ok) {
         throw new Error('Network response was not ok');
       }
-      const data = await response.json();
-      setData(data);
+      const data = (await response).json();
+      setData(await data);
       setLoading(false);
 
     } catch (error) {
@@ -55,18 +53,22 @@ function App() {
     }
   }
 
+
   if (loading) {
     return <div className='App'>Loading...</div>;
+  }
+  if (!data) {
+    return <div className='App'>データがありません。</div>;
   }
 
   return (
     <div className='App'>
-        <Title title={data?.title || "【ERROR】"} date={data?.version || "【ERROR】"} />
-        <Text text={data?.chatgpt || []} creater="ChatGPT" />
-        <Text text={data?.claude || []} creater="Claude" />
-        <Text text={data?.gemini || []} creater="Gemini" />
-        <Text text={data?.copilot || []} creater="Copilot" />
-        <Prompt prompt={data?.prompt || []} />
+      <Title data={data} moveMethod={fetchDataMethod} />
+      <Text text={data?.chatgpt || []} creater="ChatGPT" />
+      <Text text={data?.claude || []} creater="Claude" />
+      <Text text={data?.gemini || []} creater="Gemini" />
+      <Text text={data?.copilot || []} creater="Copilot" />
+      <Prompt prompt={data?.prompt || []} />
     </div>
   );
 }
@@ -74,22 +76,6 @@ function App() {
 export default App;
 
 /*
-dataList.map((data: any) => (
-          <div key={data.id}>
-            <h2>{data.title}</h2>
-            <p>{data.description}</p>
-
-            <p>{data.date}</p>
-            <p>{data.prompt}</p>
-            <p>{data.ChatGPT}</p>
-            <p>{data.Claude}</p>
-            <p>{data.Gemini}</p>
-            <p>{data.Copilot}</p>
-
-          </div>
-
-
-
 {
   "title": "星新一のタイトルでカマして欲しい！",
   "version": "2024-06-13",

@@ -1,16 +1,31 @@
 import React from 'react'
+import { Story } from './Types';
 
 interface TitleProps {
-    date: string;
-    title: string;
+    data: Story;
+    moveMethod: (currentoffset: string, direction: string) => Promise<void>;
 }
 
-export const Title = ({ title, date }: TitleProps) => {
+export const Title = ({ data, moveMethod }: TitleProps) => {
+
+    const handlePrevButton = () => {
+        moveMethod(data.offset.toString(), "prev");
+    }
+
+    const handleNextButton = () => {
+        moveMethod(data.offset.toString(), "next");
+    }
+
+
     return (
         <>
             <p>毎日更新！</p>
-            <h3>{date}</h3>
-            <h1>{title}</h1>
+            <p>
+                {data.has_prev && <input type="button" value="< 前" onClick={handlePrevButton} />}
+                {data.version}
+                {data.has_next && <input type="button" value="次 >" onClick={handleNextButton} />}
+            </p>
+            <h1>{data.title}</h1>
         </>
     )
 }
