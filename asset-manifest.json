@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/compstory_react/static/css/main.f4ec2df9.css",
-    "main.js": "/compstory_react/static/js/main.7fc5a65b.js",
+    "main.js": "/compstory_react/static/js/main.deba2313.js",
     "index.html": "/compstory_react/index.html",
     "main.f4ec2df9.css.map": "/compstory_react/static/css/main.f4ec2df9.css.map",
-    "main.7fc5a65b.js.map": "/compstory_react/static/js/main.7fc5a65b.js.map"
+    "main.deba2313.js.map": "/compstory_react/static/js/main.deba2313.js.map"
   },
   "entrypoints": [
     "static/css/main.f4ec2df9.css",
-    "static/js/main.7fc5a65b.js"
+    "static/js/main.deba2313.js"
   ]
 }
