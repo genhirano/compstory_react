@@ -1,4 +1,4 @@
-export interface Story {
+export type Story = {
     title: string;
     version: string;
     chatgpt: string[];
