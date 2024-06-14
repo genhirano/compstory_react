@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
+
 import './App.css';
 import Title from './Title';
 import Text from './Text';
@@ -27,6 +28,7 @@ function App() {
 
 
   const [data, setData] = useState<Story>();
+  const [loading, setLoading] = useState<boolean>(true);
 
   //ページが読み込まれた時に一度だけ実行
   useEffect(() => {
@@ -45,20 +47,26 @@ function App() {
       }
       const data = await response.json();
       setData(data);
-   
+      setLoading(false);
+
     } catch (error) {
       console.error('There was a problem with your fetch operation:', error);
+      setLoading(false);
     }
   }
 
+  if (loading) {
+    return <div className='App'>Loading...</div>;
+  }
+
   return (
-    <div className='App'> 
-      <Title title={data?.title || "【ERROR】"} date={data?.version  || "【ERROR】"} />
-      <Text text={data?.chatgpt || []} creater="ChatGPT" />
-      <Text text={data?.claude || []} creater="Claude" />
-      <Text text={data?.gemini || []} creater="Gemini" />
-      <Text text={data?.copilot || []} creater="Copilot" />
-      <Prompt prompt={data?.prompt || []} />
+    <div className='App'>
+        <Title title={data?.title || "【ERROR】"} date={data?.version || "【ERROR】"} />
+        <Text text={data?.chatgpt || []} creater="ChatGPT" />
+        <Text text={data?.claude || []} creater="Claude" />
+        <Text text={data?.gemini || []} creater="Gemini" />
+        <Text text={data?.copilot || []} creater="Copilot" />
+        <Prompt prompt={data?.prompt || []} />
     </div>
   );
 }
