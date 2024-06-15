@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 interface TextProps {
     creater: string;
@@ -7,13 +7,29 @@ interface TextProps {
 
 function Text({ text, creater }: TextProps) {
 
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleAccordion = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
+
         <div className='text'>
-            <h2>{creater}</h2>
-            {text.map((line, index) => (
-                <p key={index}>{line}</p>
-            ))}
+            <div className="accordion">
+                <div className="accordion-header" onClick={toggleAccordion}>
+                    <h3>{isOpen ? creater + ' の作品' : '▼' + creater + ' の作品を読んでみる'}</h3>
+                </div>
+
+                {isOpen && <div className="accordion-content, balloon">{
+                    text.map((line, index) => (
+                        <p key={index}>{line}</p>
+                    ))
+                }</div>}
+
+            </div>
         </div>
+
     )
 }
 

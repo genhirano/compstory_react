@@ -2,6 +2,53 @@
   text-align: center;
 }
 
+.App table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td {
+  font-weight: bold;
+  min-width: 100px;
+}
+
+.Movebutton {
+  background: linear-gradient(to right, #788ff5, #3879f1);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 8px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.Movebutton:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
+  transition: all 0.5s ease;
+}
+
+.Movebutton:hover:before {
+  left: 100%;
+}
+
+.Movebutton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
 body {
   margin: 0;
   font-family: 'メイリオ', sans-serif; /* 明朝体に変更 */
@@ -14,19 +61,50 @@ body {
   padding: 20px; /* メインコンテンツに余白を設ける */
 }
 
+
 h1 {
-  font-size: 2.4em; /* 見出しの大きさを変える */
-  margin-bottom: 20px;
+  position: relative;
+  padding: 1rem 1rem;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 0 5px 5px 5px;
+  font-size: 1.5rem;
+  background-color:antiquewhite;
+  font-family: 'Kosugi Maru', sans-serif;
+
 }
 
-h2 {
-  font-size: 1.8em;
-  margin-bottom: 15px;
+h1:before {
+  font-size: 1rem;
+  position: absolute;
+  top: -25px;
+  left: -1px;
+  height: 25px;
+  padding: 0 1em;
+  content: '毎日更新！';
+  color: #fff;
+  border-radius: 10px 10px 0 0;
+  background: #000;
+}
+
+
+/* h1 {
+  font-size: 2.4em;
+  margin-bottom: 20px;
+}
+ */
+
+h3 {
+  font-size: 1em;
+  display:inline;
+  line-height: 2.5;
 }
 
 .text {
   margin-left: 20px; /* メインコンテンツを左側に寄せる */
   text-align: left;
+  padding-bottom: 40px;
+
 }
 
 /* その他の装飾 */
@@ -34,9 +112,9 @@ h2 {
   margin-bottom: 10px;
 }
 
-.text h2 {
-  border-bottom: 1px solid #ccc; /* 罫線を入れる */
-  padding-bottom: 10px;
+.text h3 {
+  border-bottom: 2px solid #ccc; /* 罫線を入れる */
+  padding-bottom: 4px;
 }
 
 /* レスポンシブデザイン */
@@ -44,4 +122,28 @@ h2 {
   .text {
     margin-left: 0; /* スマートフォンでは左寄せを解除 */
   }
+}
+
+
+
+/* 吹き出し本体 */
+.balloon{
+  position: relative;
+  padding: 20px;
+  top: 20px;
+  background-color:#ccc;
+}
+
+/* beforeで三角を表現 */
+.balloon::before{
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: -15px;
+  display: block;
+  width: 0;
+  height: 0;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid #ccc;
+  border-left: 15px solid transparent;
 }

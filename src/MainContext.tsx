@@ -1,26 +1,84 @@
-import React from 'react';
+import React, { useEffect, useState} from 'react';
+import Title from './Title';
+import Text from './Text';
+import Prompt from './Prompt';
+import {Story} from './Types';
 
-import './App.css';
-import MainContext from './MainContext';
+function MainContext() {
 
-
-function App() {
-
-  //https://kubogen.com/web-programing-299/
-  //npm run deploy
-  //rfce
-
-  console.log('App.tsx rendered');
-  return (
-    <div className='App'>
-      <h1>生成AI対抗！ 短編小説コンテスト</h1>
-      <MainContext />
+    const [data, setData] = useState<Story>();
+    const [loading, setLoading] = useState<boolean>(true);
+  
+    //ページが読み込まれた時に一度だけ実行
+    useEffect(() => {
+      fetchDataMethod("0", "now");
+    }, []);
+    
+  
+    //Q.なぜ、 asyncで関数と定義して、awaitで非同期処理を待つのか？
+    //これは結局のところ普通の同期処理ではなのか？
+    //A.この関数単体では同期処理として動作しますが、fetchDataMethod関数を呼び出す側で非同期処理として動作するため、APIから戻ってくる間にほかのコンポーネントなどは処理が進む。例えばボタンクリックなど。
+    //async/await構文は、内部的にPromiseを使って非同期操作を実現している。コードが同期的な順序で書けるため可読性が高い。
+    //Point.JavaScriptはシングルスレッドで動作するため、非同期処理を使わないと、APIのレスポンスを待っている間に他の処理ができない。
+    //awaitは、その時に実行されている非同期処理を指して、それの終了を待つという意味で書く。
+  
+    //外部データプロバイダのAPIからデータを取得(data:useDataの更新あり＝レンダリングされる)
+    //currentoffset: 現在のオフセット
+    //direction: 前後のデータを取得するかどうか
+    const fetchDataMethod = async (currentoffset: string, direction: string) => {
+      setLoading(true);
+      const baseURL = "https://compshortstory.shuttleapp.rs/api";
+  
+      const queryParams: Record<string, string> = {
+        direction: direction,
+        currentoffset: currentoffset,
+      };
+      const queryString = Object.keys(queryParams)
+        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(queryParams[key])}`)
+        .join('&');
+  
+      const url = `${baseURL}?${queryString}`;
+  
+      try {
+        const response = fetch(url, {
+          method: 'GET',
+          mode: 'cors',
+        });
+        if (!(await response).ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = (await response).json();
+        setData(await data);
+        setLoading(false);
+  
+      } catch (error) {
+        console.error('There was a problem with your fetch operation:', error);
+        setLoading(false);
+      }
+    }
+  
+    if (loading) {
+      return <div className='App'>Loading...</div>;
+    }
+    if (!data) {
+      return <div className='App'>Err:Failed data receive</div>;
+    }
       
-    </div>
-  );
+    return (
+        <>
+            <Title data={data} moveMethod={fetchDataMethod} />
+            <Text text={data?.chatgpt || []} creater="ChatGPT" />
+            <Text text={data?.claude || []} creater="Claude" />
+            <Text text={data?.gemini || []} creater="Gemini" />
+            <Text text={data?.copilot || []} creater="Copilot" />
+            <Prompt prompt={data?.prompt || []} />
+        </>
+
+    )
 }
 
-export default App;
+export default MainContext
+
 
 /*
 {

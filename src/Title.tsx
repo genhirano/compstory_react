@@ -19,13 +19,22 @@ export const Title = ({ data, moveMethod }: TitleProps) => {
 
     return (
         <>
-            <p>毎日更新！</p>
             <p>
-                {data.has_prev && <input type="button" value="< 前" onClick={handlePrevButton} />}
-                {data.version}
-                {data.has_next && <input type="button" value="次 >" onClick={handleNextButton} />}
+                <table>
+                    <tr>
+                        <td>
+                            {data.has_prev && <input type="button" className="Movebutton" value="< 前" onClick={handlePrevButton} />}
+                        </td>
+                        <td>
+                            {data.version}
+                        </td>
+                        <td>
+                            {data.has_next && <input type="button" className="Movebutton" value="次 >" onClick={handleNextButton} />}
+                        </td>
+                    </tr>
+                </table>
             </p>
-            <h1>{data.title}</h1>
+            <h2>{data.title}</h2>
         </>
     )
 }
