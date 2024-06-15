@@ -23,13 +23,13 @@ export const Title = ({ data, moveMethod }: TitleProps) => {
                 <table>
                     <tr>
                         <td>
-                            {data.has_prev && <input type="button" className="Movebutton" value="< 前" onClick={handlePrevButton} />}
+                            {data.has_prev && <input type="button" className="Movebutton Button_prev" value="< 前" onClick={handlePrevButton} />}
                         </td>
                         <td>
                             {data.version}
                         </td>
                         <td>
-                            {data.has_next && <input type="button" className="Movebutton" value="次 >" onClick={handleNextButton} />}
+                            {data.has_next && <input type="button" className="Movebutton Button_next" value="次 >" onClick={handleNextButton} />}
                         </td>
                     </tr>
                 </table>

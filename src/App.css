@@ -12,6 +12,7 @@ td {
   min-width: 100px;
 }
 
+
 .Movebutton {
   background: linear-gradient(to right, #788ff5, #3879f1);
   color: #fff;
@@ -27,6 +28,12 @@ td {
   position: relative;
   overflow: hidden;
   cursor: pointer;
+}
+.Movebutton.Button_prev {
+  background: linear-gradient(to left, #788ff5, #3879f1);
+}
+.Button_next.Button_next {
+  background: linear-gradient(to right, #788ff5, #3879f1);
 }
 
 .Movebutton:before {
