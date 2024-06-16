@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/compstory_react/static/css/main.6550ed09.css",
-    "main.js": "/compstory_react/static/js/main.2fe594f9.js",
+    "main.css": "/compstory_react/static/css/main.71702dd8.css",
+    "main.js": "/compstory_react/static/js/main.4aff4b93.js",
     "index.html": "/compstory_react/index.html",
-    "main.6550ed09.css.map": "/compstory_react/static/css/main.6550ed09.css.map",
-    "main.2fe594f9.js.map": "/compstory_react/static/js/main.2fe594f9.js.map"
+    "main.71702dd8.css.map": "/compstory_react/static/css/main.71702dd8.css.map",
+    "main.4aff4b93.js.map": "/compstory_react/static/js/main.4aff4b93.js.map"
   },
   "entrypoints": [
-    "static/css/main.6550ed09.css",
-    "static/js/main.2fe594f9.js"
+    "static/css/main.71702dd8.css",
+    "static/js/main.4aff4b93.js"
   ]
 }
