@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 
 interface TextProps {
     creater: string;
+    image?: string;
     text: string[];
 }
 
-function Text({ text, creater }: TextProps) {
+function Text({ text, image, creater }: TextProps) {
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -17,10 +18,10 @@ function Text({ text, creater }: TextProps) {
 
         <div className='text'>
             <div className="accordion">
-                <div className="accordion-header" onClick={toggleAccordion}>
-                    <h3>{isOpen ? creater + ' の作品' : '▼' + creater + ' の作品を読んでみる'}</h3>
-                </div>
-
+                <h3 className="accordion-header" onClick={toggleAccordion}>
+                    <img className="accorditon-header-icon" src={image} alt="logo" />
+                    {isOpen ? creater + ' の作品' : '▼' + creater + ' の作品を読んでみる'}
+                </h3>
                 {isOpen && <div className="accordion-content, balloon">{
                     text.map((line, index) => (
                         <p key={index}>{line}</p>

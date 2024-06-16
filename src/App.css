@@ -12,7 +12,6 @@ td {
   min-width: 100px;
 }
 
-
 .Movebutton {
   background: linear-gradient(to right, #788ff5, #3879f1);
   color: #fff;
@@ -127,17 +126,22 @@ h3 {
 
 .prompt{
   text-align: left;
-
-
 }
-.prompt.accordion-header{
+.accordion-header{
   font-size: 0.8em;
   line-height: 0.8; /* 行の高さ*/
+  margin: 20px;
+  cursor: pointer;
 }
-.prompt.accordion-content{
+.accordion-content{
   font-size: 0.7em;
   line-height: 0.4; /* 行の高さ*/
 }
+.accorditon-header-icon{
+  vertical-align: middle;
+	width: 30px;
+}
+
 
 
 /* レスポンシブデザイン */
@@ -146,7 +150,6 @@ h3 {
     margin-left: 0; /* スマートフォンでは左寄せを解除 */
   }
 }
-
 
 
 /* 吹き出し本体 */
