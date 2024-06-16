@@ -19,21 +19,21 @@ export const Title = ({ data, moveMethod }: TitleProps) => {
 
     return (
         <>
-            <p>
                 <table>
-                    <tr>
-                        <td>
-                            {data.has_prev && <input type="button" className="Movebutton Button_prev" value="< 前" onClick={handlePrevButton} />}
-                        </td>
-                        <td>
-                            {data.version}
-                        </td>
-                        <td>
-                            {data.has_next && <input type="button" className="Movebutton Button_next" value="次 >" onClick={handleNextButton} />}
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>
+                                {data.has_prev && <input type="button" className="Movebutton Button_prev" value="< 前" onClick={handlePrevButton} />}
+                            </td>
+                            <td>
+                                {data.version}
+                            </td>
+                            <td>
+                                {data.has_next && <input type="button" className="Movebutton Button_next" value="次 >" onClick={handleNextButton} />}
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
-            </p>
             <h2>{data.title}</h2>
         </>
     )

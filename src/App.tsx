@@ -10,12 +10,12 @@ function App() {
   //npm run deploy
   //rfce
 
-  console.log('App.tsx rendered');
+
+  //MainContextは、ユーザー操作によってレンダリングが必要となるが、ここはその都度レンダリングする必要がない。
   return (
     <div className='App'>
       <h1>生成AI対抗！ 短編小説コンテスト</h1>
       <MainContext />
-      
     </div>
   );
 }
