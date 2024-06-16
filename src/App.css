@@ -124,6 +124,22 @@ h3 {
   padding-bottom: 4px;
 }
 
+
+.prompt{
+  text-align: left;
+
+
+}
+.prompt.accordion-header{
+  font-size: 0.8em;
+  line-height: 0.8; /* 行の高さ*/
+}
+.prompt.accordion-content{
+  font-size: 0.7em;
+  line-height: 0.4; /* 行の高さ*/
+}
+
+
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
   .text {
