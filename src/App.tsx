@@ -2,6 +2,7 @@ import React from 'react';
 
 import './App.css';
 import MainContext from './MainContext';
+import TSStudyMain from './TSStudy/TSStudyMain';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     <div className='App'>
       <h1>生成AI対抗！ 短編小説コンテスト</h1>
       <MainContext />
+      <TSStudyMain />
     </div>
   );
 }
