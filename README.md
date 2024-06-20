@@ -9,6 +9,29 @@
 * メモ
   * Gighub pagesでAPIキー隠すのが難しかった
 
+  * bootstrapを使うならこれが便利
+    * https://react-bootstrap.netlify.app/
+
+* mapbox関連
+    * ラッパーを使わない場合 
+      * https://qiita.com/dayjournal/items/7d25e703facad3494fd9
+
+
+
+* npm 基本
+  * package.json とは そのプロジェクトのパッケージを管理するための宣言
+    * npm init とコマンド実行すると package.json が作成される
+  * package-lock.json
+    * インストールした結果が記載されるファイル
+  * 人間が package.json を直接編集することはない。それらは npm コマンド経由で更新する
+  * ローカル（プロジェクト）インストールされたパッケージ
+    * node_modulesディレクトリに入っている。（.gitignoreされる）
+  * package.json に書いてある依存パッケージは npm install とするだけせ全部ローカルインストールされる
+
+
+
+
+
 
 ## その他（デフォルト）
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
