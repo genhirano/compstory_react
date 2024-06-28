@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/compstory_react/static/css/main.f3c10032.css",
+    "main.css": "/compstory_react/static/css/main.4f7e235c.css",
     "main.js": "/compstory_react/static/js/main.941f42ee.js",
     "static/js/885.53d58559.chunk.js": "/compstory_react/static/js/885.53d58559.chunk.js",
     "static/media/sound_ソ2.mp3": "/compstory_react/static/media/sound_ソ2.940409d7870f7c91dad3.mp3",
@@ -22,12 +22,12 @@
     "static/media/sound_ド4.mp3": "/compstory_react/static/media/sound_ド4.1eeb11dad13d83fe4eae.mp3",
     "static/media/sound_シ♭2.mp3": "/compstory_react/static/media/sound_シ♭2.a6ef7ba5554a3df7da97.mp3",
     "index.html": "/compstory_react/index.html",
-    "main.f3c10032.css.map": "/compstory_react/static/css/main.f3c10032.css.map",
+    "main.4f7e235c.css.map": "/compstory_react/static/css/main.4f7e235c.css.map",
     "main.941f42ee.js.map": "/compstory_react/static/js/main.941f42ee.js.map",
     "885.53d58559.chunk.js.map": "/compstory_react/static/js/885.53d58559.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f3c10032.css",
+    "static/css/main.4f7e235c.css",
     "static/js/main.941f42ee.js"
   ]
 }
