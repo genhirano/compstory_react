@@ -7,6 +7,8 @@ import TSStudyMain from './TSStudy/TSStudyMain';
 
 function App() {
 
+  //npm start     //http://localhost:3000/
+
   //https://kubogen.com/web-programing-299/
   //npm run deploy
   //rfce
